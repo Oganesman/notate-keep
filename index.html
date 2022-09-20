@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="google-signin-client_id"
+		content="396035704688-p0n9oka496g6afpig5tjtuvvugn6rgic.apps.googleusercontent.com">
 	<link rel="stylesheet" href="css/style.css">
-	<script src="script.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="app.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.js"></script>
 	<title>ShopList</title>
 </head>
+
 <body>
 	<div class="wrapper">
 		<div class="container">
@@ -62,7 +68,7 @@
 									<img src="images/aside/change.svg" alt="">
 									<span class="nav-list__text"> Changes </span>
 								</div>
-								<div role="button" class="nav-list__icon">	
+								<div role="button" class="nav-list__icon">
 									<img src="images/aside/archive.svg" alt="">
 									<span class="nav-list__text"> Archives </span>
 								</div>
@@ -71,18 +77,29 @@
 									<span class="nav-list__text"> Trash </span>
 								</div>
 							</div>
-							<div class="nav-license">
+							<!-- <div class="nav-license">
 								<a href="https://ssl.gstatic.com/keep/licenses/web_client_licenses.txt" target="_blank" class="nav-license__link" tabindex="0">Лицензии открытого ПО</a>
-							</div>
+							</div> -->
 						</div>
 					</nav>
 				</aside>
 				<!-- ?Main -->
-				<main class="content-main">
-					
+				<main class="content-main" ng-controller="mainCtrl">
+					<div class="main-block">
+						<input type="text" placeholder="Notate..." ng-model="boba">
+						<div class="main-block__button" ng-click="addPost(boba)">
+							CLICK
+						</div>
+						<div class="g-signin2" data-onsuccess="onSignIn"></div>
+					</div>
+					<div ng-repeat="biba in books">{{biba.name}}</div>
+
 				</main>
 			</div>
 		</div>
 	</div>
+
+
 </body>
+
 </html>
